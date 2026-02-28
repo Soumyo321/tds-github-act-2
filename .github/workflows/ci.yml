@@ -1,0 +1,18 @@
+name: CI  # Name your workflow for the badge
+
+on:
+  push:  # Runs on code pushes
+    branches: [ main ]  # Target your main branch
+  pull_request:  # Also on PRs
+    branches: [ main ]
+  workflow_dispatch:  # Allows manual trigger—key for testing! [web:8]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest  # Free GitHub runner
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4  # Grabs your code
+
+      - name: Run a test
+        run: echo "Hello, CI is working!"  # Super simple step
